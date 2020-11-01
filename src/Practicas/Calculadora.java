@@ -16,11 +16,14 @@ public class Calculadora {
         final String[] contenido = new String[1];
         final double[] resultado = new double[1];
         final boolean[] punto = {true};
+        final boolean[] operado = new boolean[1];
+        operado[0]=true;
+        final String[] resultadototal = {""};
         // Creo un frame
         Frame f = new Frame("Calculadora");
 
         f.setTitle("CALCULADORA");
-        f.setSize(300, 350);
+        f.setSize(350, 350);
         f.setLocationRelativeTo(null);
         f.setLayout(new GridLayout(2, 1));
         f.setVisible(true);
@@ -36,7 +39,7 @@ public class Calculadora {
         // Creo TextField para mostrar los resultados
         TextField pantalla = new TextField();
         // Añado una fuente
-        Font myFont = new Font("Courier", Font.ITALIC, 12);
+        Font myFont = new Font("Courier", Font.ITALIC, 25);
         pantalla.setFont(myFont);
         // Le doy color al fondo
         pantalla.setBackground(Color.CYAN);
@@ -170,255 +173,286 @@ public class Calculadora {
         borrar.setSize(50, 30);
 
         // Añado los botones al panel de los botones
-        for (Button button : Arrays.asList(numero_7, numero_8, numero_9, division, limpiar, masmenos, numero_4, numero_5,
+        for (Button button : Arrays.asList(numero_7, numero_8, numero_9, division, limpiar, borrar, numero_4, numero_5,
                 numero_6, multiplicar, unox, potencia2, numero_1, numero_2, numero_3, resta, potencia, raiz,
-                numero_0, coma, porcentaje, suma, igual, borrar)) {
+                numero_0, coma, igual, suma, porcentaje, masmenos)) {
             botones.add(button);
         }
 
         f.add(botones);
 
         // Botones numeros
-        numero_0.addActionListener(new ActionListener() {
+        numero_0.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "0");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "0");
+                } else {
+                    pantalla.setText("0");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_1.addActionListener(new ActionListener() {
+        numero_1.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "1");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "1");
+                } else {
+                    pantalla.setText("1");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_2.addActionListener(new ActionListener() {
+        numero_2.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "2");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "2");
+                } else {
+                    pantalla.setText("2");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_3.addActionListener(new ActionListener() {
+        numero_3.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "3");
+                if (!pantalla.getText().equals("0") && !operado[0]){
+                    pantalla.setText(pantalla.getText() + "3");
+                } else {
+                    pantalla.setText("3");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_4.addActionListener(new ActionListener() {
+        numero_4.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "4");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "4");
+                } else {
+                    pantalla.setText("4");
+                    operado[0]=false;
+                }
+            }
+        });
+        numero_5.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "5");
+                } else {
+                    pantalla.setText("5");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_5.addActionListener(new ActionListener() {
+        numero_6.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "5");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "6");
+                } else {
+                    pantalla.setText("6");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_6.addActionListener(new ActionListener() {
+        numero_7.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "6");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "7");
+                } else {
+                    pantalla.setText("7");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_7.addActionListener(new ActionListener() {
+        numero_8.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "7");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "8");
+                } else {
+                    pantalla.setText("8");
+                    operado[0]=false;
+                }
             }
         });
 
-        numero_8.addActionListener(new ActionListener() {
+        numero_9.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "8");
-            }
-        });
-
-        numero_9.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pantalla.setText(pantalla.getText() + "9");
+                if (!pantalla.getText().equals("0")&& !operado[0]){
+                    pantalla.setText(pantalla.getText() + "9");
+                } else {
+                    pantalla.setText("9");
+                    operado[0]=false;
+                }
             }
         });
 
         // Borramos la pantalla
-        limpiar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pantalla.setText("");
-            }
-        });
+        limpiar.addActionListener(e -> pantalla.setText("0"));
 
         // Boton punto
-        coma.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                contenido[0] = pantalla.getText();
-                // Si el contenido es menor o igual de 0 pongo "0." Si el campo esta vacio muestro "0."
-                if (contenido[0].length() <= 0) {
-                    pantalla.setText("0.");
+        coma.addActionListener(e -> {
+            contenido[0] = pantalla.getText();
+            // Si el contenido es menor o igual de 0 pongo "0." Si el campo esta vacio muestro "0."
+            if (contenido[0].length() <= 0) {
+                pantalla.setText("0.");
+            } else {
+                // Si hay algun punto no coloca otro punto
+                if (pantalla.getText().contains(".")) {
                 } else {
-                    // Si hay algun punto no coloca otro punto
-                    if (pantalla.getText().contains(".")) {
-                    } else {
-                        pantalla.setText(pantalla.getText() + ".");
-                        punto[0] = false;
-                    }
+                    pantalla.setText(pantalla.getText() + ".");
+                    punto[0] = false;
                 }
             }
         });
 
         // Boton masmenos
-        masmenos.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                contenido[0] = pantalla.getText();
-                if (contenido[0].length() > 0) {
-                    resultado[0] = (-1) * Double.parseDouble(contenido[0]);
+        masmenos.addActionListener(e -> {
+            contenido[0] = pantalla.getText();
+            if (contenido[0].length() > 0) {
+                resultado[0] = (-1) * Double.parseDouble(contenido[0]);
+                if (resultado[0]%1==0){
+                    pantalla.setText(String.valueOf((int)resultado[0]));
+                } else {
                     pantalla.setText(String.valueOf(resultado[0]));
                 }
             }
+            operado[0]=true;
         });
 
-        // Botones elevadps
-        unox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                contenido[0]=pantalla.getText();
-                if (contenido[0].length()>0){
-                    resultado[0]=1/Double.parseDouble(contenido[0]);
-                    pantalla.setText(String.valueOf(resultado[0]));
-                }
+        // Botones elevados
+        unox.addActionListener(e -> {
+            contenido[0]=pantalla.getText();
+            if (contenido[0].length()>0){
+                resultado[0]=1/Double.parseDouble(contenido[0]);
+                pantalla.setText(String.valueOf(resultado[0]));
             }
+            operado[0]=true;
         });
 
-        // Botones elevadps
-        potencia2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                contenido[0]=pantalla.getText();
-                if (contenido[0].length()>0){
-                    resultado[0]=Math.pow(Double.parseDouble(contenido[0]),2);
+        // Botones elevados
+        potencia2.addActionListener(e -> {
+            contenido[0]=pantalla.getText();
+            if (contenido[0].length()>0){
+                resultado[0]=Math.pow(Double.parseDouble(contenido[0]),2);
+                if (resultado[0]%1==0){
+                    pantalla.setText(String.valueOf((int)resultado[0]));
+                } else {
                     pantalla.setText(String.valueOf(resultado[0]));
                 }
             }
+            operado[0]=true;
         });
 
         // Operacines botones
-        suma.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               if (!pantalla.getText().equals("")){
-                   valor1[0] =pantalla.getText();
-                   signo[0] ="+";
-                   pantalla.setText("");
-               }
+        suma.addActionListener(e -> {
+            if (!pantalla.getText().equals("")){
+                valor1[0] =pantalla.getText();
+                signo[0] ="+";
+                pantalla.setText("");
             }
+            operado[0]=false;
         });
 
-        resta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!pantalla.getText().equals("")){
-                    valor1[0] =pantalla.getText();
-                    signo[0] ="-";
-                    pantalla.setText("");
-                }
+        resta.addActionListener(e -> {
+            if (!pantalla.getText().equals("")){
+                valor1[0] =pantalla.getText();
+                signo[0] ="-";
+                pantalla.setText("");
             }
+            operado[0]=false;
         });
 
-        multiplicar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!pantalla.getText().equals("")){
-                    valor1[0] =pantalla.getText();
-                    signo[0] ="x";
-                    pantalla.setText("");
-                }
+        multiplicar.addActionListener(e -> {
+            if (!pantalla.getText().equals("")){
+                valor1[0] =pantalla.getText();
+                signo[0] ="x";
+                pantalla.setText("");
             }
+            operado[0]=false;
         });
 
-        division.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!pantalla.getText().equals("")){
-                    valor1[0] =pantalla.getText();
-                    signo[0] ="/";
-                    pantalla.setText("");
-                }
+        division.addActionListener(e -> {
+            if (!pantalla.getText().equals("")){
+                valor1[0] =pantalla.getText();
+                signo[0] ="/";
+                pantalla.setText("");
             }
+            operado[0]=false;
         });
 
-        potencia.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!pantalla.getText().equals("")){
-                    valor1[0] =pantalla.getText();
-                    signo[0] ="x^y";
-                    pantalla.setText("");
-                }
+        potencia.addActionListener(e -> {
+            if (!pantalla.getText().equals("")){
+                valor1[0] =pantalla.getText();
+                signo[0] ="x^y";
+                pantalla.setText("");
             }
+            operado[0]=true;
         });
-        
 
-        raiz.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                contenido[0]= pantalla.getText();
-                if (contenido[0].length()>0){
-                    resultado[0]=Math.sqrt(Double.parseDouble(contenido[0]));
+
+        raiz.addActionListener(e -> {
+            contenido[0]= pantalla.getText();
+            if (contenido[0].length()>0){
+                resultado[0]=Math.sqrt(Double.parseDouble(contenido[0]));
+                if (resultado[0]%1==0){
+                    pantalla.setText(String.valueOf((int)resultado[0]));
+                } else {
                     pantalla.setText(String.valueOf(resultado[0]));
                 }
-            }
-        });
-
-        porcentaje.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!pantalla.getText().equals("")){
-                    valor1[0] =pantalla.getText();
-                    signo[0] ="%";
-                    pantalla.setText("");
-                }
-            }
-        });
-
-        borrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                contenido[0]=pantalla.getText();
-                if (contenido[0].length()>0){
-                    contenido[0]=contenido[0].substring(0, contenido[0].length()-1);
-                    pantalla.setText(contenido[0]);
-                }
 
             }
+            operado[0]=true;
         });
 
-        igual.addActionListener(new ActionListener() {
+        porcentaje.addActionListener(e -> {
+            if (!pantalla.getText().equals("")){
+                valor1[0] =pantalla.getText();
+                signo[0] ="%";
+                pantalla.setText("");
+            }
+            operado[0]=true;
+        });
+
+        borrar.addActionListener(e -> {
+            contenido[0]=pantalla.getText();
+            if (contenido[0].length()>0){
+                contenido[0]=contenido[0].substring(0, contenido[0].length()-1);
+                pantalla.setText(contenido[0]);
+            }
+
+        });
+
+        igual.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String resultadototal;
                 valor2[0] =pantalla.getText();
                 if (!valor2[0].equals("")){
-                    resultadototal=operaciones(valor1[0],valor2[0],signo[0]);
-                    pantalla.setText(resultadototal);
+                    resultadototal[0] =operaciones(valor1[0],valor2[0],signo[0]);
+                    pantalla.setText(resultadototal[0]);
                 }
+                operado[0]=true;
             }
         });
 
     }
 
     public static String operaciones(String valor1, String valor2, String signo) {
-        Double resultadocal = 0.0;
+        double resultadocal = 0.0;
         String respuesta;
 
         if (signo.endsWith("+")) {
@@ -434,7 +468,12 @@ public class Calculadora {
         } else if (signo.endsWith("%")){
             resultadocal = (Double.parseDouble(valor1)/100)*Double.parseDouble(valor2);
         }
-        respuesta = resultadocal.toString();
+        if (resultadocal%1==0){
+            respuesta = String.valueOf((int)resultadocal);
+        } else{
+            respuesta = String.valueOf(resultadocal);
+        }
+
         return respuesta;
     }
 
